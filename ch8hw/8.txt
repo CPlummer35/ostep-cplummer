@@ -1,0 +1,46 @@
+1. ./mlfq.py -j 3 -c
+    Final statistics:
+  Job  0: startTime   0 - response   0 - turnaround 180
+  Job  1: startTime   0 - response   7 - turnaround 161
+  Job  2: startTime   0 - response  10 - turnaround 171
+
+  Avg  2: startTime n/a - response 5.67 - turnaround 170.67
+
+   ./mlfq.py -j 3 -s 100 -c
+   Final statistics:
+  Job  0: startTime   0 - response   0 - turnaround  39
+  Job  1: startTime   0 - response   5 - turnaround 153
+  Job  2: startTime   0 - response  12 - turnaround 208
+
+  Avg  2: startTime n/a - response 5.67 - turnaround 133.33
+
+2. Ex1 - ./mlfq.py -n 3 -l 0,200,0 -c
+        Final statistics:
+  Job  0: startTime   0 - response   0 - turnaround 200
+
+  Avg  0: startTime n/a - response 0.00 - turnaround 200.00
+
+   Ex2 - ./mlfq.py -n 3 -l 0,200,0:100,20,0 -c
+        Final statistics:
+  Job  0: startTime   0 - response   0 - turnaround 220
+  Job  1: startTime 100 - response   0 - turnaround  20
+
+  Avg  1: startTime n/a - response 0.00 - turnaround 120.00
+
+3. Set --numQueues to 1 and it would run like a standard RR.
+
+4. Job 0 will do 99 seconds of work, 1 second of fake IO, and then return to to 99 seconds of work again.
+>prompt ./mlfq.py -l 0,1000,99:0,1000,0 -q 100 -i 1 -I -S
+
+5. Time quantum would have to be 200 seconds. A longrunning job would initially get 10s in Q1. Let us assume 
+worst-case, which is that Q1 is 100% utilized so the job would be demoted and would have to wait an additional 
+180s before getting priority boosted. This would let the job run 10/200=.05=5% of the time steps.
+
+
+
+
+
+
+
+
+
