@@ -1,0 +1,74 @@
+1. ** Solutions ** FIFO
+
+Execution trace:
+  [ time   0 ] Run job 0 for 1.00 secs ( DONE at 1.00 )
+  [ time   1 ] Run job 1 for 3.00 secs ( DONE at 4.00 )
+  [ time   4 ] Run job 2 for 8.00 secs ( DONE at 12.00 )
+
+Final statistics:
+  Job   0 -- Response: 0.00  Turnaround 1.00  Wait 0.00
+  Job   1 -- Response: 1.00  Turnaround 4.00  Wait 1.00
+  Job   2 -- Response: 4.00  Turnaround 12.00  Wait 4.00
+
+  Average -- Response: 1.67  Turnaround 5.67  Wait 1.67
+
+  ** Solutions ** SJF
+
+Execution trace:
+  [ time   0 ] Run job 0 for 2.00 secs ( DONE at 2.00 )
+  [ time   2 ] Run job 1 for 5.00 secs ( DONE at 7.00 )
+  [ time   7 ] Run job 2 for 8.00 secs ( DONE at 15.00 )
+
+Final statistics:
+  Job   0 -- Response: 0.00  Turnaround 2.00  Wait 0.00
+  Job   1 -- Response: 2.00  Turnaround 7.00  Wait 2.00
+  Job   2 -- Response: 7.00  Turnaround 15.00  Wait 7.00
+
+  Average -- Response: 3.00  Turnaround 8.00  Wait 3.00
+
+2. SJF ** Solutions **
+
+Execution trace:
+  [ time   0 ] Run job 0 for 100.00 secs ( DONE at 100.00 )
+  [ time 100 ] Run job 1 for 200.00 secs ( DONE at 300.00 )
+  [ time 300 ] Run job 2 for 300.00 secs ( DONE at 600.00 )
+
+Final statistics:
+  Job   0 -- Response: 0.00  Turnaround 100.00  Wait 0.00
+  Job   1 -- Response: 100.00  Turnaround 300.00  Wait 100.00
+  Job   2 -- Response: 300.00  Turnaround 600.00  Wait 300.00
+
+  Average -- Response: 133.33  Turnaround 333.33  Wait 133.33
+
+  FIFO ** Solutions **
+
+Execution trace:
+  [ time   0 ] Run job 0 for 100.00 secs ( DONE at 100.00 )
+  [ time 100 ] Run job 1 for 200.00 secs ( DONE at 300.00 )
+  [ time 300 ] Run job 2 for 300.00 secs ( DONE at 600.00 )
+
+Final statistics:
+  Job   0 -- Response: 0.00  Turnaround 100.00  Wait 0.00
+  Job   1 -- Response: 100.00  Turnaround 300.00  Wait 100.00
+  Job   2 -- Response: 300.00  Turnaround 600.00  Wait 300.00
+
+  Average -- Response: 133.33  Turnaround 333.33  Wait 133.33
+
+
+
+3. RR Final statistics:
+  Job   0 -- Response: 0.00  Turnaround 298.00  Wait 198.00
+  Job   1 -- Response: 1.00  Turnaround 499.00  Wait 299.00
+  Job   2 -- Response: 2.00  Turnaround 600.00  Wait 300.00
+
+  Average -- Response: 1.00  Turnaround 465.67  Wait 265.67
+
+4. When the workloads are all of different size, SJF and FIFO deliver the same turnaround time.
+
+5. SJF delivers the same response times as RR when the scheduling quantum of RR is larger than the 
+largest job to be serviced (so there is no preemption in RR) and when the jobs arrive in order of increasing job size.
+
+6. When job size goes up with SJF response time drastically goes up.
+
+7. With RR, as quantum lengths increase, response time increases because the time a process must wait for its next time 
+slice is proportional to the number of other processes and the maximum amount of time they can execute. 
