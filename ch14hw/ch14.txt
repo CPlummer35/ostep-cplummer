@@ -1,0 +1,15 @@
+1. Segmentation fault
+
+2. Program received signal SIGSEGV, Segmentation fault.
+0x000104d4 in main (argc=1, argv=0x7efff6a4) at null.c:7
+7	    printf("%d\n", *ptr);
+
+3. Valgrind has to be installed on Mac? It will show where my ptr is and say it isn't "malloc'd"
+
+4. Runs.
+
+5. Nothing happens.
+
+6. Runs.
+
+7. Core dumped
