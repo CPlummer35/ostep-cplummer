@@ -1,0 +1,6 @@
+1. ....
+2. free doesn't seem to exist on macOSX so after some quick googling vm_stat was found
+3. memory-user.c
+4. The amount of MB you gave as argument gets added to the statistics shown by free. 
+When the program is killed, the used memory decreases by the amount of MB you gave as argument.
+
